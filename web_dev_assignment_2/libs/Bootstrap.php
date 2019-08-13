@@ -28,6 +28,7 @@
                 return false;
             }
             
+            #echo($url[0]);
             $controller = new $url[0];
             $controller->index();
 
