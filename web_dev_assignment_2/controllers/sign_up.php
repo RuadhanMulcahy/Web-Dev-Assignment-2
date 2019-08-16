@@ -15,7 +15,8 @@
             
             require 'models/sign_up_model.php';
             $model = new Sign_Up_Model();
-            $model->run();
+            $obj = $model->run();
+            return $obj;
         }
     }
 ?>

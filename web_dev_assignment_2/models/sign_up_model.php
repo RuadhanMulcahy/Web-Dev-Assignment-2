@@ -23,7 +23,7 @@
 
             if($count == 0) {
 
-                if(strlen($password) > 8) {
+                if(strlen($password) > 8 && strlen($password) < 32) {
 
                     if($password_confirm == $password) {
                         
@@ -32,15 +32,25 @@
                         header("Location: ../login");
                     } else {
                         
-                        echo("Passwords do not match.");
+                        #passwords do not match
+                        Session::init();
+                        Session::set('check', 'pass_same');
+                        header("Location: ../sign_up");
                     }
                 } else {
-
-                    echo("Password is too short.");
+                    
+                    #password too short
+                    Session::init();
+                    Session::set('check', 'pass_requirement');
+                    header("Location: ../sign_up");
                 }
             } else {
-                 echo("<?php $var = 2");
-                 echo("This email is already in use.");
+                 
+                #This email is already in use.
+                echo("working");
+                Session::init();
+                Session::set('check', 'email');
+                header("Location: ../sign_up");
             }
         }
     }

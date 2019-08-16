@@ -6,10 +6,21 @@
         <form action="sign_up/run" method="post">
             <div class="form-group">
                 <label for="login">Email:</label>
+                <?php if(Session::get('check') == 'email'):?>
+                    <font color="red">Email already in use.</font>
+                    <?php Session::destroy()?>
+                <?php endif ?>
                 <input type="email" class="form-control" id="login" placeholder="Enter email" name="login">
             </div>
             <div class="form-group">
                 <label for="pwd">Password:</label>
+                <?php if(Session::get('check') == 'pass_requirement'):?>
+                    <font color="red">Password must be between 8 and 32 characters.</font>
+                    <?php Session::destroy()?>
+                <?php elseif(Session::get('check') == 'pass_same'):?>
+                    <font color="red">Passwords do not match.</font>
+                    <?php Session::destroy()?>
+                <?php endif ?>
                 <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
             </div>
             <div class="form-group">
