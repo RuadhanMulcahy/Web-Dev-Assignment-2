@@ -13,6 +13,11 @@
             $this->pagination();
         }
 
+        public function run() {
+
+            $this->pagination();
+        }
+
         public function pagination() {
 
             require 'models/holidays_model.php';
@@ -37,7 +42,7 @@
 
             $results = $model->get_content($this_page_first_result, $results_per_page);
 
-            foreach($results as $row) {
+            /*foreach($results as $row) {
                 
                 echo('<div class="container">');
                 echo('<div class="row">');
@@ -46,12 +51,41 @@
                 echo($row['ACCOMODATION_TYPE'] . '<br>');
                 echo('<img src="' . $row['IMAGES'] . '.jpg'. '" alt="image" width="500" height="333"> <br>');
                 echo($row['DESCRIPTION'] . '<br><br>');
-            }
+            }*/
 
-            for($page=1; $page<=$number_of_pages; $page++) {
+            foreach($results as $row) {
+                echo('
+                    <div class="row justify-content-center">
+                        <div class="card" style="width: 70rem;">
+                            <div class="row"> 
+                                <div class="col-9">
+                                    <img class="card-img-top" src="' . $row["IMAGES"] . '.jpg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Beautiful beach holiday in stunning Colombia.</h4>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
+                                    </div>
+                                </div>
+                                <div class="col text-center">
+                                        <div class="card-body">
+                                            <li class="list-group-item">Price</li>
+                                            <li class="list-group-item">Accomodation Type</li><br>
+                                            <button class="btn btn-primary" type="submit">Book Now</button>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                ');
+            };
 
-                echo ('<a href="holidays?page=' . $page . '">' . $page .  '</a> ');
-            }
+
+            echo('<div class="center">');
+                for($page=1; $page<=$number_of_pages; $page++) {
+
+                    echo ('<a href="holidays?page=' . $page . '">' . $page .  '</a> ');
+                }
+            echo('</div>');
         }
     }
 ?>

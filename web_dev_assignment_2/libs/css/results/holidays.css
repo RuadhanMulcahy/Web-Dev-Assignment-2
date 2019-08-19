@@ -1,0 +1,14 @@
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+
+  background-color:  grey !important;
+}
+
+.center {
+
+  text-align: center;
+}
+
+a {
+
+  color: white;
+}
