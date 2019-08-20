@@ -28,13 +28,12 @@
                 return false;
             }
             
-            #echo($url[0]);
             $controller = new $url[0];
             $controller->index();
 
-            if (isset($url[2])) {
+            if (isset($url[1])) {
                 
-                $controller->{$url[1]}($url[2])->index();
+                $controller->{$url[1]}();
                 return false;
             }
             else {

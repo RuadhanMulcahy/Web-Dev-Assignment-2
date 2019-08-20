@@ -10,12 +10,13 @@
         public function index() {
 
             $this->view->render('holidays/index');
-            $this->pagination();
         }
 
         public function run() {
-
+            
             $this->pagination();
+            $var = $_POST['destination'];
+            echo($var);
         }
 
         public function pagination() {

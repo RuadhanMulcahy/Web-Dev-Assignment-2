@@ -12,8 +12,8 @@
             $this->view->render('help/index');
         }
 
-        public function other($arg = false) {
-
+        public function other() {
+            
             #echo 'We are inside other!<br>';
             #echo 'Optional:' . $arg . '<br>';
         }

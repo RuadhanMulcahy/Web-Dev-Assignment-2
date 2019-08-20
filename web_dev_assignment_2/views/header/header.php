@@ -10,3 +10,4 @@
     </head>
 <body>
     <?php require 'navigation_bar.php'; ?>
+    <link rel="stylesheet" type="text/css" href="libs/css/background/background.css">
